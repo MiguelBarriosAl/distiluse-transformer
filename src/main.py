@@ -13,7 +13,7 @@ def main():
     for file in files:
         if check_allowed_file(file):
             processing = Processing(PATH_DIR + file)
-            processing.embeddings()
+            processing.save_model()
         else:
             print('The file is not in .txt format')
 

@@ -8,12 +8,19 @@ def check_allowed_file(filename: str):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def n_tokens(text: str) -> int:
+    return len(word_tokenize(text))
+
+
 def check_n_tokens(text: str) -> list:
-    n_tokens = len(word_tokenize(text))
-    if 50 <= n_tokens <= 512:
+    tokens = n_tokens(text)
+    if 50 <= tokens <= 512:
         text = [text]
-    elif n_tokens > 512:
-        text = split_text(text, n_tokens)
-    elif n_tokens < 50:
+    elif tokens > 512:
+        text = split_text(text, tokens)
+    elif tokens < 50:
         text = []
     return text
+
+
+
