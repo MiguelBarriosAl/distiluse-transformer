@@ -53,6 +53,10 @@ Cosas a tener en cuenta:
 
         pip install -r requirements.txt
 
+- Run 
+
+        python3 src/main.py
+
 # Output
 
 At the end of the training, the model is automatically saved `/src/app`

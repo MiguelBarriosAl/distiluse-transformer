@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
-from src.app.checkers import check_allowed_file
-from src.app.processing import Processing
+from app.checkers import check_allowed_file
+from app.processing import Processing
 
 UPLOAD_FOLDER = '/app/data/'
 BASE_DIR = Path(__file__).resolve(strict=True).parent

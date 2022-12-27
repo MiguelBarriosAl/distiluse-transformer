@@ -1,7 +1,7 @@
 import time
 from pathlib import Path
-from src.app.checkers import check_n_tokens
-from src.app.wrangling import clean_text
+from app.checkers import check_n_tokens
+from app.wrangling import clean_text
 from sentence_transformers import SentenceTransformer, evaluation
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
@@ -22,14 +22,18 @@ class Processing:
         return clean_text(line)
 
     def embeddings(self):
+        data = []
         lines = self.read(self.file)
         self.model = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
-        # time.process_time()
-        for line in lines[:10]:
+        # init = time.process_time()
+        for line in lines:
             clean_line = self._clean_text(line)
             sentences = check_n_tokens(clean_line)
-            self.model.encode(sentences)
-        # time.process_time()
+            #self.model.encode(sentences)
+            data = data + sentences
+        self.model.encode(data)
+        # end = time.process_time()
+        # print(end - init)
         return self.model
 
     def save_model(self):
