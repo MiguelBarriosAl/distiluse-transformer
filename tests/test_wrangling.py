@@ -1,6 +1,6 @@
 import unittest
 
-from app.wrangling import clean_text, split_text
+from src.app.wrangling import clean_text, split_text
 
 
 class TestWrangling(unittest.TestCase):

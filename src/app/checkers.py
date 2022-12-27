@@ -1,5 +1,5 @@
 from nltk.tokenize import word_tokenize
-from app.wrangling import split_text
+from src.app.wrangling import split_text
 
 ALLOWED_EXTENSIONS = {'txt'}
 

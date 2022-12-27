@@ -53,9 +53,9 @@ Cosas a tener en cuenta:
 
         pip install -r requirements.txt
 
-- Run 
+- Run Tests
 
-        python3 src/main.py
+        python3 -m unittest discover tests/
 
 # Output
 

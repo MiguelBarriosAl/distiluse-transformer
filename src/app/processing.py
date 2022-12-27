@@ -2,7 +2,7 @@ import time
 from pathlib import Path
 from app.checkers import check_n_tokens
 from app.wrangling import clean_text
-from sentence_transformers import SentenceTransformer, evaluation
+from sentence_transformers import SentenceTransformer
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent
 
