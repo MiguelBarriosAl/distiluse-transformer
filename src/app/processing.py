@@ -25,15 +25,11 @@ class Processing:
         data = []
         lines = self.read(self.file)
         self.model = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
-        # init = time.process_time()
         for line in lines:
             clean_line = self._clean_text(line)
             sentences = check_n_tokens(clean_line)
-            #self.model.encode(sentences)
             data = data + sentences
         self.model.encode(data)
-        # end = time.process_time()
-        # print(end - init)
         return self.model
 
     def save_model(self):
