@@ -23,7 +23,8 @@ class Processing:
             cleaned_line = clean_text(line)
             sentences = check_n_tokens(cleaned_line)
             data = data + sentences
-        return MODEL.encode(data)
+        MODEL.encode(data)
+        return MODEL
 
     def save_model(self):
         model = self.embeddings()
