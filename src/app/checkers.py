@@ -15,12 +15,11 @@ def n_tokens(text: str) -> int:
 def check_n_tokens(text: str) -> list:
     tokens = n_tokens(text)
     if 50 <= tokens <= 512:
-        text = [text]
+        return [text]
     elif tokens > 512:
-        text = split_text(text, tokens)
+        return split_text(text, tokens)
     elif tokens < 50:
-        text = []
-    return text
+        return []
 
 
 
