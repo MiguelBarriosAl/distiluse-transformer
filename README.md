@@ -1,13 +1,13 @@
 # Distiluse Transformer
-Dada una lista de parrafos necesitamos calcular sus embeddings con el modelo elegido ‘distiluse-base-multilingual-cased-v1’, guardar esos embeddings en disco y poder recuperarlos cada vez que la aplicacion se reinicie, de esta manera evitamos el tiempo de carga.
+Given a list of paragraphs we need to calculate their embeddings with the chosen model 'distiluse-base-multilingual-cased-v1', save those embeddings to disk and be able to retrieve them every time the application is restarted, this way we avoid the loading time.
 
-Cosas a tener en cuenta:
+Things to keep in mind:
 
-* La lista de parrafos se encuentra en el fichero adjunto, cada fila del fichero es un parrafo.
-* Los parrafos no pueden superar los 512 tokens, por lo que si superasen 512 debemos aplicar alguna logica para truncarlos en 2 parrafos. La logica a aplicar es a eleccion del candidato, se desaconseja cortar bruscamente simplemente al llegar a 512 tokens. Se podria retroceder hasta encontrar un ‘.’ o ’,’, mayuscula… Son opciones, se puede usar una de esas o cualquier otra que decida el candidatos.
-* Filtramos los parrafos con menos de 50 tokens ya que los consideramos irrelevantes de cara a nuestra busqueda semantica.
-* Debemos sanitizar los parrafos para asegurarnos de que no contengan parametros extraños.
-* Suponiendo que la libreria para calcular los tokens de cada parrafo fuese costosa y no nos conviene llamarla cada vez que ejecutamos tests en local, mockear esa llamada en los test de manera que no llegue a realizar la llamada a la libreria y que se devuelva automaticamente el valor esperado.
+* The list of paragraphs is in the attached file, each row of the file is a paragraph.
+* Paragraphs cannot exceed 512 tokens, so if they exceed 512 we must apply some logic to truncate them into 2 paragraphs. The logic to be applied is up to the candidate's choice, it is not advisable to cut off abruptly when reaching 512 tokens. You could go backwards until you find a '.' or ',', capital '... These are options, you can use one of these or any other of your choice.
+* We filter out paragraphs with less than 50 tokens as we consider them irrelevant to our semantic search.
+* We must sanitise the paragraphs to ensure that they do not contain extraneous parameters.
+* Assuming that the library to calculate the tokens of each paragraph is expensive and we don't want to call it every time we run local tests, we should mock that call in the tests so that we don't make the call to the library and the expected value is automatically returned.
 
 # Project Structure
     ├── README.md
